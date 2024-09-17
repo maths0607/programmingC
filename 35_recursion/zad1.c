@@ -17,6 +17,7 @@ void recur2(int n){
     }
 }
 int main(){
-    recur2(614);
+    recur(614);
+    printf("\n");
     return 0;
 }

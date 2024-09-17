@@ -14,20 +14,19 @@ int **create(int n){
         }
         printf("\n");
     }
-    
-
     return p;
 }
 int *access(int **M,int i,int j,int n){
     static int dummy;
-    dummy=5;
+    dummy=0;
     if(i<0 || i>=n || j<0 || j> n) exit(1);
     int line = (i/block)*block; 
-    if(line > j || line+block <= j) return &dummy;
+    //je me dis oubien i/10 == j/10
+    if(i/10 != j/10) return &dummy;
     return &M[i][j%10];
 }
-void destroy(int **M){
-    for (int i=0;i++;i<block){
+void destroy(int **M,int n){
+    for (int i=0;i++;i<n){
         free(M[i]);
     }    
     free(M);
@@ -37,5 +36,5 @@ int main(){
     int **a=create(n);
     
     printf("%d\n",*access(a,5,9,n));
-    destroy(a);
+    destroy(a,n);
 }
